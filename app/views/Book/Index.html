@@ -1,0 +1,38 @@
+{{set . "title" "Book List"}} {{template "header.html" .}}
+
+{{if .flash}} {{template "flash.html" .}} {{end}}
+
+
+<div class="col-sm-6 col-sm-offset-3">
+    <a href="{{url "Book.New"}}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Tambah</a>
+</div>
+
+<div class="col-sm-6 col-sm-offset-3">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range $b := .books}}
+            <tr>
+                <td>{{$b.Title}}</td>
+                <td>{{$b.Description}}</td>
+                <td>
+                    <a href="{{url "Book.Edit" $b.ID}}">Edit</a>
+                    <a href="{{url "Book.Show" $b.ID}}">View</a>
+		    <a href="{{url "Book.Delete" $b.ID}}">Delete</a>
+
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
+
+<a href="{{url "App.Logout"}}">Logout {{.name}}</a>
+
+{{template "footer.html" .}}

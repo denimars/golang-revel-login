@@ -1,0 +1,14 @@
+{{set . "title" "Home"}} {{template "header.html" .}} {{if .flash}} {{template "flash.html" .}} {{end}}
+<div class="col-sm-6 col-sm-offset-3">
+    <h1> Login </h1>
+</div>
+<div class="col-sm-6 col-sm-offset-3">
+    <form action="{{url "App.Login"}}" method="POST">
+        <input class="form-control" type="text" name="username" placeholder="username"><br>
+        <input class="form-control" type="password" name="password" placeholder="password"><br>
+        <label>Remember</label><input type="checkbox" name="remember" value="true"><br>
+        <input class="btn btn-primary" type="submit" value="Login">
+    </form>
+</div>
+
+{{template "footer.html" .}}

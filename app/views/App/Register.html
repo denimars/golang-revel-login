@@ -1,0 +1,27 @@
+{{set . "title" "Login"}} {{template "header.html" .}} {{if .flash}} {{template "flash.html" .}} {{end}}
+<div class="col-sm-6 col-sm-offset-3">
+    <h1>Register</h1>
+    <br>
+    <form action="{{url "App.Save"}}" method="POST">
+        {{with $field := field "user.Name" .}}
+        <label>Name:</label><br>
+        <input class="form-control" type="text" value="{{$field.Flash}}" name="{{$field.Name}}">
+        <span>{{$field.Error}}</span>
+        <br> {{end}} {{with $field := field "user.Username" .}}
+        <label>Username:</label><br>
+        <input class="form-control" type="text" value="{{$field.Flash}}" name="{{$field.Name}}">
+        <span>{{$field.Error}}</span>
+        <br> {{end}} {{with $field := field "password" .}}
+        <label>Password:</label><br>
+        <input class="form-control" type="password" value="{{$field.Flash}}" name="{{$field.Name}}">
+        <span>{{$field.Error}}</span>
+        <br> {{end}} {{with $field := field "cekpassword" .}}
+        <label>Verify Password:</label><br>
+        <input class="form-control" type="password" value="{{$field.Flash}}" name="{{$field.Name}}">
+        <span>{{$field.Error}}</span>
+        <br> {{end}}
+        <input class="btn btn-danger" type="submit" value="Register">
+    </form>
+</div>
+
+{{template "footer.html" .}}

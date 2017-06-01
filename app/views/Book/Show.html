@@ -1,0 +1,13 @@
+{{set . "title" "Show"}} {{template "header.html" .}}
+<div class="col-sm-6 col-sm-offset-3">
+    {{with $b := .book}}
+    <br> {{.ID}}
+    <br> {{.Title}}
+    <br> {{.Description}} {{end}}
+</div>
+
+
+<div class="col-sm-6 col-sm-offset-3">
+	<a href="{{url "Book.Index"}}">Back</a>
+</div>
+{{template "footer.html" .}}

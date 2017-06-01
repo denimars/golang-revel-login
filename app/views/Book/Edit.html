@@ -1,0 +1,13 @@
+{{set . "title" "Home"}} {{template "header.html" .}}
+<div class="col-sm-6 col-sm-offset-3">
+    <form action="{{url "Book.Update"}}" method="POST">
+        {{with .book}}
+        <input type="hidden" value="{{.ID}}" name="id">
+        <input type="text" value="{{.Title}}" name="title" class="form-control">
+        <br>
+        <input type="text" value="{{.Description}}" name="description" class="form-control">
+        <br>
+        <input type="submit" value="Simpan" class="btn btn-primary"> {{end}}
+    </form>
+</div>
+{{template "footer.html" .}}

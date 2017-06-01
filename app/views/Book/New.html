@@ -1,0 +1,12 @@
+{{set . "title" "Home"}} {{template "header.html" .}}
+<div class="col-sm-6 col-sm-offset-3">
+<form action="{{url "Book.Save"}}" method="POST">
+    {{with $field := field "book.Title" .}}
+    <input type="text" value="{{$field.Flash}}" name="{{$field.Name}}" class="form-control">
+    <span>{{$field.Error}}</span> <br>{{end}} {{with $field := field "book.Description" .}}
+    <input type="text" value="{{$field.Flash}}" name="{{$field.Name}}" class="form-control">
+    <span>{{$field.Error}}</span> <br>{{end}}
+    <input type="submit" value="Simpan" class="btn btn-primary">
+</form>
+</div>
+{{template "footer.html" .}}
